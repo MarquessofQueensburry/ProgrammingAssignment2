@@ -108,7 +108,7 @@ This assignment will be graded via peer assessment.
 ## Adapting the instructions of the example provided above we get
 ## A function that makes a matrix that can cache its own inverse.
 
-
+<!-- -->
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
         set <- function(z) {
