@@ -103,3 +103,41 @@ In order to complete this assignment, you must do the following:
 ### Grading
 
 This assignment will be graded via peer assessment.
+
+
+## Adapting the instructions of the example provided above we get
+## A function that makes a matrix that can cache its own inverse.
+
+
+makeCacheMatrix <- function(x = matrix()) {
+        inv <- NULL
+        set <- function(z) {
+                x <<- z
+                inv <<- NULL
+        }
+        get <- function() x
+        setInverse <- function(inverse) inv <<- inverse
+        getInverse <- function() inv
+        list(set = set,
+             get = get,
+             setInverse = setInverse,
+             getInverse = getInverse)
+}
+
+
+## This function gives us the inverse of the matrix made by the function above.
+## If the inverse is known then the function should use the inverse form the
+## Cache.
+
+
+cacheSolve <- function(x, ...) {       
+        inv <- x$getInverse()
+        if (!is.null(inv)) {
+                message("getting cached data")
+                return(inv)
+        }
+        grid <- x$get()
+        inv <- solve(grid, ...)
+        x$setInverse(inv)
+        inv
+}
