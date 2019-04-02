@@ -105,11 +105,11 @@ In order to complete this assignment, you must do the following:
 This assignment will be graded via peer assessment.
 
 
-## Adapting the instructions of the example provided above we get
-## A function that makes a matrix that can cache its own inverse.
 
-<!-- -->
-makeCacheMatrix <- function(x = matrix()) {
+Adapting the instructions of the example provided above we get a function that makes a matrix that can cache its own inverse.
+
+
+'makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
         set <- function(z) {
                 x <<- z
@@ -122,15 +122,12 @@ makeCacheMatrix <- function(x = matrix()) {
              get = get,
              setInverse = setInverse,
              getInverse = getInverse)
-}
+}'
+
+This function gives us the inverse of the matrix made by the function above. If the inverse is known then the function should use the inverse form the cache.
 
 
-## This function gives us the inverse of the matrix made by the function above.
-## If the inverse is known then the function should use the inverse form the
-## Cache.
-
-
-cacheSolve <- function(x, ...) {       
+'cacheSolve <- function(x, ...) {       
         inv <- x$getInverse()
         if (!is.null(inv)) {
                 message("getting cached data")
@@ -140,4 +137,4 @@ cacheSolve <- function(x, ...) {
         inv <- solve(grid, ...)
         x$setInverse(inv)
         inv
-}
+}'
